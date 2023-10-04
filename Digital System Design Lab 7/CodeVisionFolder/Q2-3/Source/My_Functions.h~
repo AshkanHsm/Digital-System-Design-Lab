@@ -1,0 +1,11 @@
+#ifndef _My_Functions_h_INCLUDED_
+#define _My_Functions_h_INCLUDED_
+
+
+
+void Question2(char data);
+void Question3(char data);
+
+
+#endif
+

@@ -1,0 +1,135 @@
+#include <HeaderFiles.h>
+
+void Q2(char data){
+    char LCD_f[17]="";
+    char LCD_s[17]="";
+    if(data>='0'&&data<='9'){
+         printf("\r Tx: %c \r",data);
+         lcd_clear();
+         sprintf(LCD_f,"Tx: %c",data);
+         lcd_gotoxy(0,0);
+         lcd_puts(LCD_f);
+         printf("\r Rx: Data=%c & 10*Data=%c0 \r",data,data);
+         sprintf(LCD_s,"d=%c & 10*d=%c0",data,data);
+         lcd_gotoxy(0,1);
+         lcd_puts(LCD_s);
+        }
+        
+    else if(data=='D' || data=='d') {
+         printf("\r Tx: %c \r",data);
+         printf("\r Rx: LCD deleted \r",data);      
+         lcd_clear();            
+         lcd_gotoxy(0,0);
+         lcd_puts("lcd deleted !");
+    }
+    else if(data=='H' || data=='h') {
+         printf("\r Tx: %c \r",data);
+         lcd_clear();
+         sprintf(LCD_f,"Tx: %c",data);
+         lcd_gotoxy(0,0);
+         lcd_puts(LCD_f);
+         printf("\r Rx: Help: \r*************\rMicro processor lab \r************* \r<<end help>>");
+         sprintf(LCD_s,"Rx: Help:*LAB*");
+         lcd_gotoxy(0,1);
+         lcd_puts(LCD_s);         
+    }
+    else if(data=='E' || data=='e') {      
+         
+         printf("\r Rx: end of This Part");
+         lcd_clear();
+         sprintf(LCD_f,"Rx: end of This Part");
+         lcd_gotoxy(0,0);
+         lcd_puts(LCD_f);
+         printf("\r Part 2 End & Part 3 Start \r");
+         sprintf(LCD_s,"Part3 Start");
+         lcd_gotoxy(0,1);
+         lcd_puts(LCD_s);  
+        state='3';
+        
+    }
+    else{
+         printf("\r Tx: %c \r",data);
+         lcd_clear();
+         sprintf(LCD_f,"Tx: %c",data);
+         lcd_gotoxy(0,0);
+         lcd_puts(LCD_f);
+         printf("\r Rx: intput letter is '%c' \r",data);
+         sprintf(LCD_s,"Rx:intput is '%c'",data);
+         lcd_gotoxy(0,1);
+         lcd_puts(LCD_s);
+    }
+
+
+
+}
+
+void Q3(unsigned char data){
+     char LCD_f[17]="";
+     char LCD_s[17]="";
+     dataar[0]=data;
+     strcat(str,dataar);
+     if(((data>='A') && (data<='z')))
+     {
+        ctrl=0;     
+     }
+     if((data=='(') && (count==0))
+     {
+        count=-1;
+     }
+     else if ((count!=0))
+     {
+        if (data==')')
+        {
+            if((count==5)&&(ctrl==1))
+            {
+                printf("\r Tx: %s\r",str);
+                lcd_clear();
+                sprintf(LCD_f,"Tx: %s",str);
+                lcd_gotoxy(0,0);
+                lcd_puts(LCD_f);
+                printf("\r Rx: The frame is correct\r");
+                sprintf(LCD_s,"Rx:frame is correct");
+                lcd_gotoxy(0,1);
+                lcd_puts(LCD_s);
+            }
+            else if ((count==5)&&((ctrl==0)))
+            {
+                printf("\r Tx: %s\r",str);
+                lcd_clear();
+                sprintf(LCD_f,"Tx: %s",str);
+                lcd_gotoxy(0,0);
+                lcd_puts(LCD_f);
+                printf("\r Rx: Frame must be 5 integer\r");
+                sprintf(LCD_s,"Frame must 5integer");
+                lcd_gotoxy(0,1);
+                lcd_puts(LCD_s);
+            }
+            else
+            {
+                
+                
+                printf("\r Tx: %s\r",str);
+                lcd_clear();
+                sprintf(LCD_f,"Tx: %s",str);
+                lcd_gotoxy(0,0);
+                lcd_puts(LCD_f);
+                printf("\r Rx: Incorrect frame size\r");
+                sprintf(LCD_s,"Incorrect frame size");
+                lcd_gotoxy(0,1);
+                lcd_puts(LCD_s);
+            }
+        count=0;
+        sprintf(str,"");
+        ctrl=1;
+        }
+        else if(count==-1)
+        {
+            count=count+2;
+        }
+        else
+        {
+            count+=1;
+        }
+     }   
+
+}

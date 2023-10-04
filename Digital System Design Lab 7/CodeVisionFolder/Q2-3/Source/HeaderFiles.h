@@ -1,0 +1,25 @@
+#ifndef _HeaderFiles_h_INCLUDED_
+#define _HeaderFiles_h_INCLUDED_
+
+    #include <stdio.h>
+    #include <mega16.h>
+    #include <alcd.h>
+    #include <string.h>
+    #include <delay.h>
+    #include <alcd.h>
+    #include <My_Functions.h>
+
+
+     //q2---------
+  
+    //*****---------Variables----------*****
+     extern char state;
+     extern char str[17];
+     extern int count;
+     extern int ctrl;
+     extern char dataar[1];
+
+    //*****---------End_Variables----------*****
+
+#endif
+

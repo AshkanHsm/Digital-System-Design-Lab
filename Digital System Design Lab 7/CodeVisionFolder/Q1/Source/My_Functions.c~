@@ -1,0 +1,10 @@
+
+#include <HeaderFiles.h>
+
+void Console_Get_AndShow_q1(){
+      scanf("%d",Input);
+      printf("\r\n <<  %d  >>",Input);
+      
+      
+
+}

@@ -1,0 +1,31 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+Input                                                                             0x0160       2
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+main                                                                              0x00057     48
+Console_Get_AndShow_q1                                                            0x00087     15
+getchar                                                                           0x00096      4
+putchar                                                                           0x0009A      7
+put_usart_G100                                                                    0x000A1     13
+_print_G100                                                                       0x000AE    308
+printf                                                                            0x001E2     31
+get_usart_G100                                                                    0x00201     22
+_scanf_G100                                                                       0x00217    322
+scanf                                                                             0x00359     29
+strlen                                                                            0x00376     12
+strlenf                                                                           0x00382     13
+isdigit                                                                           0x0038F      9
+isspace                                                                           0x00398     11
+isxdigit                                                                          0x003A3     15
