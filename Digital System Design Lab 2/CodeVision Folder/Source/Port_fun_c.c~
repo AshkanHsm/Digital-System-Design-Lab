@@ -1,0 +1,183 @@
+#include <header.h>
+/**********************************/
+unsigned int Q1(unsigned int port_in,unsigned int port_out)
+{
+char data_in;
+switch( port_in)
+{
+    case port_A:
+        DDRA=0x00; // as input
+        data_in=PINA;
+    break ;
+    case port_B:
+        DDRB=0x00; // as input
+        data_in=PINB;
+    break;
+    case port_C:
+        DDRC=0x00; // as input
+        data_in=PINC;
+    break;
+    case port_D:
+        DDRD=0x00; // as input
+        data_in=PIND;
+    break;
+}
+switch( port_out)
+{
+    case port_A:
+        DDRA=0xFF; // as output
+        PORTA=data_in;
+    break ;
+    case port_B:
+        DDRB=0xFF; // as output
+        PORTB=data_in;
+    break;
+    case port_C:
+        DDRC=0xFF; // as output
+        PORTC=data_in;
+    break;
+    case port_D:
+        DDRD=0xFF; // as output
+        PORTD=data_in;
+    break;
+    }
+return 1; // can be any data with unsigned int format
+}
+// ***********************************//
+unsigned int Q2(unsigned int port_in,unsigned int data_in)
+{
+switch( port_in)
+{
+    case port_A:
+        DDRA=0xff; // as input
+        PORTA=data_in;
+    break ;
+    case port_B:
+        DDRB=0xff; // as input
+        PORTB=data_in;
+    break;
+    case port_C:
+        DDRC=0xff; // as input
+        PORTC=data_in;
+    break;
+    case port_D:
+        DDRD=0xff; // as input
+        PORTD=data_in;
+    break;
+}
+return 1; // can be any data with unsigned int format
+}
+//************************************//
+unsigned int Q3(unsigned int n_on_off,unsigned int time_between_on_off)
+{
+    int i;
+    for(i=0;i<n_on_off;i++){
+        Q2(port_B,0xff);
+        delay_ms(time_between_on_off);
+        Q2(port_B,0x00);
+        delay_ms(time_between_on_off);
+    }
+            
+return 1; // can be any data with unsigned int format
+}
+//*****************************************//
+void Q4(void)
+{
+    Q1(port_A,port_B);
+}
+//*****************************************//
+void Q5(unsigned int data_in,char PORT_out,char PORT_en)
+{
+    char numbers[] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D,0x7D, 0x07, 0x7F, 0x6F};
+    int i;
+    for (i=0;i<10;i++) {
+    
+
+        switch(PORT_en)
+        {
+            case port_A:
+                DDRA=0x0f; 
+                PORTA=0x0E;
+            break ;
+            case port_B:
+                DDRB=0x0f; 
+                PORTB=0x0E;
+            break;
+            case port_C:
+                DDRC=0x0f; 
+                PORTC=0x0E;
+            break;
+            case port_D:
+                DDRD=0x0f; 
+                PORTD=0x0E;
+            break;
+        }
+        Q2(PORT_out,numbers[(data_in/1)%10]);
+        delay_ms(5);
+        switch(PORT_en)
+        {
+            case port_A:
+                DDRA=0x0f; 
+                PORTA=0x0D;
+            break ;
+            case port_B:
+                DDRB=0x0f; 
+                PORTB=0x0D;
+            break;
+            case port_C:
+                DDRC=0x0f; 
+                PORTC=0x0D;
+            break;
+            case port_D:
+                DDRD=0x0f; 
+                PORTD=0x0D;
+            break;
+        }
+        Q2(PORT_out,numbers[(data_in/10)%10]);
+        delay_ms(5);
+        
+        switch(PORT_en)
+        {
+            case port_A:
+                DDRA=0x0f; 
+                PORTA=0x0B;
+            break ;
+            case port_B:
+                DDRB=0x0f; 
+                PORTB=0x0B;
+            break;
+            case port_C:
+                DDRC=0x0f; 
+                PORTC=0x0B;
+            break;
+            case port_D:
+                DDRD=0x0f; 
+                PORTD=0x0B;
+            break;
+        }
+        Q2(PORT_out,numbers[(data_in/100)%10]);
+        delay_ms(5);
+        
+        switch(PORT_en)
+        {
+            case port_A:
+                DDRA=0x0f; 
+                PORTA=0x07;
+            break ;
+            case port_B:
+                DDRB=0x0f; 
+                PORTB=0x07;
+            break;
+            case port_C:
+                DDRC=0x0f; 
+                PORTC=0x07;
+            break;
+            case port_D:
+                DDRD=0x0f; 
+                PORTD=0x07;
+            break;
+        }
+        Q2(PORT_out,numbers[(data_in/1000)%10]);
+        delay_ms(5);
+    }
+}    

@@ -1,0 +1,24 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+main                                                                              0x00059      9
+Start                                                                             0x00062      8
+BlinkLED_Q1                                                                       0x0006A     26
+LedLightDance_Q2                                                                  0x00084     18
+SwitchToLed_Q3                                                                    0x00096      3
+UpDownCount_Q4                                                                    0x00099     29
+SevenSegDecrease_Q5                                                               0x000B6     81
+SevenSegShowNumber                                                                0x00107     77
+SevenSegZeroButton_Q6                                                             0x00154    137
