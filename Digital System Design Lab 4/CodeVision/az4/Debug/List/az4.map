@@ -1,0 +1,53 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+FreeParkingLot                                                                    0x0196       2
+M_Sec                                                                             0x0198       2
+Sec                                                                               0x019A       2
+Minute                                                                            0x019C       2
+Hour                                                                              0x019E       2
+pause                                                                             0x01A0       1
+reset                                                                             0x01A1       1
+start                                                                             0x01A2       1
+Freq                                                                              0x01A3       1
+_base_y                                                                           0x01A4       4
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+_lcd_x                                                                            R5           1
+_lcd_y                                                                            R4           1
+_lcd_maxx                                                                         R7           1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+ext_int0_isr                                                                      0x000A8      4
+ext_int1_isr                                                                      0x000AC      4
+ext_int2_isr                                                                      0x000B0      4
+timer0_ovf_isr                                                                    0x000B4     19
+main                                                                              0x000C7     73
+chronometerkeycheck_INT1                                                          0x00110     29
+chronometer_INT                                                                   0x0012D    241
+CarIntruptCheck                                                                   0x0021E     34
+ParkingSpaceShow_LCD                                                              0x00240     36
+TurnOFF_AllTimers                                                                 0x00264      5
+TurnOn_SelectedTimer                                                              0x00269     23
+FrequencySelect_INT2                                                              0x00280     20
+PeriodDisplay                                                                     0x00294     17
+put_buff_G100                                                                     0x002A5     64
+_print_G100                                                                       0x002E5    308
+sprintf                                                                           0x00419     52
+_lcd_write_nibble_G101                                                            0x0044D     20
+_lcd_write_data                                                                   0x00461     12
+lcd_gotoxy                                                                        0x0046D     13
+lcd_clear                                                                         0x0047A     12
+lcd_putchar                                                                       0x00486     21
+lcd_puts                                                                          0x0049B     17
+lcd_init                                                                          0x004AC     46
+strlen                                                                            0x004DA     12
+strlenf                                                                           0x004E6     13
