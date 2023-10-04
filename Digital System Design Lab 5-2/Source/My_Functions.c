@@ -1,0 +1,104 @@
+//q1 Student name and ID in 2 lines
+//q2 "Welcome to the Microprocessor lab classes in Isfahan University of Technology"
+#include <HeaderFiles.h>
+
+
+/*
+
+pwm Duty.C:  10     30    50     70    90
+Speed(rpm) :
+Ocr       :  1A     4D   80     B2    E5
+
+*/
+void Q2_Function(int DutyCycle){
+    if(DutyCycle==10){OCR0=0x1A;}
+    else if(DutyCycle==30){OCR0=0x4D;}
+    else if(DutyCycle==50){OCR0=0x80;}
+    else if(DutyCycle==70){OCR0=0xB2;}
+    else if(DutyCycle==90){OCR0=0xE5;}
+    else{OCR0=0x00;}
+
+}
+
+void Q4_Function(){
+
+      int ocrValue=255;
+      ocrValue=PINA;
+      OCR0=ocrValue;
+
+
+}
+
+void Q5_function_TwoPhase()
+{
+
+        delay_ms(1000);
+        PORTB=0x30;
+        delay_ms(1000);
+        PORTB=0x60;
+        delay_ms(1000);
+        PORTB=0xc0;
+        delay_ms(1000);
+        PORTB=0x90;
+
+
+
+}
+
+void TurnOFF_AllTimers(){
+
+    TCCR0=(0<<WGM00) | (0<<COM01) | (0<<COM00) | (0<<WGM01) | (0<<CS02) | (0<<CS01) | (0<<CS00);
+
+    TCCR1A=(0<<COM1A1) | (0<<COM1A0) | (0<<COM1B1) | (0<<COM1B0) | (0<<WGM11) | (0<<WGM10);
+    TCCR1B=(0<<ICNC1) | (0<<ICES1) | (0<<WGM13) | (0<<WGM12) | (0<<CS12) | (0<<CS11) | (0<<CS10);
+
+
+    TCCR2=(0<<PWM2) | (0<<COM21) | (0<<COM20) | (0<<CTC2) | (0<<CS22) | (0<<CS21) | (0<<CS20);
+
+
+}
+void turnOn_SelectedTimer(int SelectTimer)
+{
+
+
+    if(SelectTimer==0){
+     TCCR0=(1<<WGM00) | (1<<COM01) | (0<<COM00) | (1<<WGM01) | (0<<CS02) | (1<<CS01) | (0<<CS00);
+    }
+    else if(SelectTimer==1){
+
+           // TCCR1B =  (0<<CS12)| (1<<CS11)| (0<<CS10);  //1Mhz  -> Period = 1.024 ms
+
+    }
+    else if(SelectTimer==2){
+         TCCR2=(0<<PWM2) | (0<<COM21) | (0<<COM20) | (0<<CTC2) | (0<<CS22) | (1<<CS21) | (0<<CS20);
+    }
+}
+void Q6_Speedmeter(){
+      int dataL,dataH;
+      char Speed_display[10]="00";
+      if(control==1)
+      {
+          control=0;
+          dataL=ICR1L;
+          dataH=ICR1H;
+          ICR_Data=(dataH<<8 |dataL)>>2; 
+      }
+      else
+      {   
+          dataL=ICR1L;
+          dataH=ICR1H;
+          ICR_Hold=ICR_Data;
+          ICR_Data=(dataH<<8 |dataL)>>2;
+          Spacetime_Hold=Spacetime;
+          Spacetime=ICR_Data-ICR_Hold;
+      }
+      if((((Spacetime_Hold-Spacetime)>20)|| ((Spacetime_Hold-Spacetime)<-20))&&
+      (((Spacetime_Hold-Spacetime)>-1000)|| ((Spacetime_Hold-Spacetime)<1000))&&(Spacetime>0))
+      {
+          sprintf(Speed_display,"%d",2000*150/Spacetime);
+          lcd_clear();
+          lcd_puts(Speed_display);
+      }
+          
+          
+}

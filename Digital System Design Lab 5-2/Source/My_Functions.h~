@@ -1,0 +1,24 @@
+#ifndef _My_Functions_h_INCLUDED_
+#define _My_Functions_h_INCLUDED_
+//Q1=====
+/*
+void First_Initialazeation();
+
+*/
+void Q2_Function(int DutyCycle);
+
+void Q4_Function();
+void Q5_function_TwoPhase();
+void TurnOFF_AllTimers();
+void turnOn_SelectedTimer(int SelectTimer);
+void Q6_Speedmeter();
+
+extern int control;
+extern int ICR_Data;
+extern int ICR_Hold;
+extern int def_time;
+extern int def_time0;
+
+
+#endif
+
