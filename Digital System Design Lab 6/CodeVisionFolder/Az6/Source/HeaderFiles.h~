@@ -1,0 +1,33 @@
+#ifndef _HeaderFiles_h_INCLUDED_
+#define _HeaderFiles_h_INCLUDED_
+
+    #include <stdio.h>
+    #include <mega16.h>
+    #include <alcd.h>
+    #include <string.h>
+    #include <delay.h>
+    #include <alcd.h>
+    #include <My_Functions.h>
+
+
+     //q2---------
+    #define FIRST_ADC_INPUT 0
+    #define LAST_ADC_INPUT 7
+    extern unsigned int adc_data[LAST_ADC_INPUT-FIRST_ADC_INPUT+1];
+
+
+    // Voltage Reference: AVCC pin   (q1 and q2)
+    #define ADC_VREF_TYPE ((0<<REFS1) | (1<<REFS0) | (0<<ADLAR))
+
+    //*****---------Variables----------*****
+    extern int ADC_Value;
+    extern char adcStringINPUT[16];
+
+    extern unsigned int MySaved_Voltage[8];
+    //q2
+    extern int changedValue_Channel;
+
+    //*****---------End_Variables----------*****
+
+#endif
+

@@ -1,0 +1,9 @@
+VERSION:3 SOURCE_TIMESTAMP:55728F65
+NODE:I LEVEL:0 LINE:24 ".\Source\HeaderFiles.h"
+NODE:V LEVEL:0 LINE:27 "ADC_Value -> RAM:????"
+NODE:V LEVEL:0 LINE:28 "adcStringINPUT -> RAM:????"
+NODE:V LEVEL:0 LINE:30 "adc_data -> RAM:????"
+NODE:V LEVEL:0 LINE:31 "MySaved_Voltage -> RAM:????"
+NODE:V LEVEL:0 LINE:33 "changedValue_Channel -> RAM:????"
+NODE:F LEVEL:0 LINE:39 "adc_isr(void)"
+NODE:F LEVEL:0 LINE:43 "main(void)"

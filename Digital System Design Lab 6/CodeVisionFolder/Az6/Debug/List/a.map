@@ -1,0 +1,49 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+adc_data                                                                          0x0160      16
+ADC_Value                                                                         0x0170       2
+adcStringINPUT                                                                    0x0172      16
+MySaved_Voltage                                                                   0x0182      16
+changedValue_Channel                                                              0x0192       2
+input_index                                                                       0x0194       1
+_base_y                                                                           0x0195       4
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+_lcd_x                                                                            R5           1
+_lcd_y                                                                            R4           1
+_lcd_maxx                                                                         R7           1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+adc_isr                                                                           0x0007B     28
+main                                                                              0x00097     52
+ADC_init_Q2                                                                       0x000CF      7
+read_adc                                                                          0x000D6     15
+Save_Voltage_ADC_ByChannel_Q1                                                     0x000F8     28
+Display_Voltage_ByChannel                                                         0x00114     35
+Display_Voltage_AllChannels                                                       0x00137     18
+Question1                                                                         0x00149     15
+interupt_ADC_Q2                                                                   0x00158     32
+Detect_Voltage_change                                                             0x00178     86
+Question2                                                                         0x001CE     22
+Question3                                                                         0x001E4      8
+put_buff_G100                                                                     0x001EC     64
+_print_G100                                                                       0x0022C    308
+sprintf                                                                           0x00360     52
+_lcd_write_nibble_G101                                                            0x00394     20
+_lcd_write_data                                                                   0x003A8     12
+lcd_gotoxy                                                                        0x003B4     13
+lcd_clear                                                                         0x003C1     12
+lcd_putchar                                                                       0x003CD     21
+lcd_puts                                                                          0x003E2     17
+lcd_init                                                                          0x003F3     46
+strlen                                                                            0x00421     12
+strlenf                                                                           0x0042D     13

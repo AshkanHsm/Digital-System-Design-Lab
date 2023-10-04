@@ -1,0 +1,38 @@
+#ifndef _My_Functions_h_INCLUDED_
+#define _My_Functions_h_INCLUDED_
+
+
+
+
+ unsigned int read_adc(unsigned char adc_input);
+int ADC_To_Voltage(char adc_Channel,int adc_Value);
+void Save_Voltage_ADC_ByChannel_Q1(char adc_Channel);
+void Display_Voltage_ByChanel(char adc_Channel);
+void Display_Voltage_AllChanels();
+
+ //Q2 subFunctions
+void interupt_ADC_Q2();
+void Detect_Voltage_change();
+void Display_changedVoltages_Q2();
+
+
+//q1 Answer  ---------------
+void ADC_init_Q1();
+void Question1();
+
+
+
+
+
+ //q2  Answer  -----------
+ void ADC_init_Q2();
+ void Question2();
+
+ //q3
+ void Question3();
+
+
+
+
+#endif
+
